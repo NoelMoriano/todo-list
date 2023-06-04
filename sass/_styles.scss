@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#tasks-form {
+  background: #00467f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #00467f,
+    #a5cc82
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #00467f,
+    #a5cc82
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  width: 100%;
+  height: auto;
+  padding: 1em;
+
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
+  p:last-child {
+    margin: auto 0 0 0;
+  }
+
+  p {
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+    label {
+      display: block;
+      margin: 0.5em;
+    }
+
+    input,
+    button {
+      border-radius: 7em;
+      border: none;
+      padding: 0.4em 1em;
+      font-size: 1em;
+    }
+
+    input {
+      width: 27em;
+      @media (max-width: 800px) {
+        width: 100%;
+      }
+    }
+
+    button {
+      background-color: rgb(110, 242, 110);
+      cursor: pointer;
+      transition: all ease-in-out 0.3s;
+      &:hover {
+        transition: all ease-in-out 0.3s;
+        transform: scale(1.2, 1.2);
+        @media (max-width: 800px) {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 800px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.tasks-wrapper {
+  width: 100%;
+  min-height: 90vh;
+  height: auto;
+  padding: 1em;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    gap: 1em;
+    justify-content: center;
+    .card {
+      border-radius: 1em;
+      border: none;
+      overflow: hidden;
+      box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      .content {
+        padding: 1em;
+      }
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 1em;
+        div {
+          padding: 1em;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
