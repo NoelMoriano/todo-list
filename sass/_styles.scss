@@ -4,6 +4,31 @@
   box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -36,7 +61,7 @@ body {
     flex-direction: column;
   }
 
-  p:last-child {
+  p {
     margin: auto 0 0 0;
   }
 
@@ -44,22 +69,32 @@ body {
     @media (max-width: 800px) {
       width: 100%;
     }
+
     label {
       display: block;
       margin: 0.5em;
     }
 
     input,
-    button {
+    button,
+    select {
       border-radius: 7em;
       border: none;
       padding: 0.4em 1em;
       font-size: 1em;
     }
 
+    select {
+      width: 8em;
+    }
+
     input {
       width: 27em;
-      @media (max-width: 800px) {
+    }
+
+    @media (max-width: 800px) {
+      input,
+      select {
         width: 100%;
       }
     }
@@ -85,9 +120,36 @@ body {
 
 .tasks-wrapper {
   width: 100%;
-  min-height: 90vh;
   height: auto;
-  padding: 1em;
+  overflow: auto;
+
+  .overflow-wrapper {
+    width: 100%;
+    min-width: 1000px;
+    min-height: 85vh;
+    overflow-x: scroll;
+    height: auto;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+
+  .wrapper-list {
+    display: grid;
+    grid-template-rows: 4em 1fr;
+    .header {
+      padding: 1em 0;
+      font-weight: 600;
+      text-align: center;
+      font-size: 1.2em;
+    }
+    .content-list {
+      width: 100%;
+      height: 70vh;
+      overflow-y: scroll;
+    }
+  }
 
   ul {
     list-style: none;
@@ -104,6 +166,7 @@ body {
       overflow: hidden;
       box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(0, 0, 0, 0.1);
+      margin-bottom: 1em;
       .content {
         padding: 1em;
       }

@@ -6,12 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TodoList</title>
     <link rel="stylesheet" href="./css/index.css" />
+    <!-- CDNS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <form id="tasks-form">
       <p>
         <label for="">Enter task</label>
-        <input type="text" />
+        <input type="text" id="task-value" name="task" />
+      </p>
+      <p>
+        <select name="status" id="task-status">
+          <option value="pending">Pending</option>
+          <option value="in-progress">In progress</option>
+          <option value="complete">Complete</option>
+        </select>
       </p>
       <p>
         <button type="submit">Save</button>
@@ -19,56 +34,40 @@
     </form>
 
     <div class="tasks-wrapper">
-      <ul>
-        <li class="card">
-          <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
-            ipsa odit unde consequuntur labore fugiat nesciunt suscipit optio
-            atque libero autem maxime incidunt quo. Temporibus aut ullam
-            mollitia deserunt reiciendis!
+      <div class="overflow-wrapper">
+        <div class="wrapper-list">
+          <div class="header">
+            To Do <br />
+            <small>Pendiente</small>
           </div>
-          <div class="actions">
-            <div class="icon-item">X</div>
-            <div class="icon-item">X</div>
+          <div class="content-list">
+            <ul id="to-do-list"></ul>
           </div>
-        </li>
-        <li class="card">
-          <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
-            ipsa odit unde consequuntur labore fugiat nesciunt suscipit optio
-            atque libero autem maxime incidunt quo. Temporibus aut ullam
-            mollitia deserunt reiciendis!
+        </div>
+
+        <div class="wrapper-list">
+          <div class="header">
+            Doing <br />
+            <small>En Proceso</small>
           </div>
-          <div class="actions">
-            <div class="icon-item">X</div>
-            <div class="icon-item">X</div>
+          <div class="content-list">
+            <ul id="doing-list"></ul>
           </div>
-        </li>
-        <li class="card">
-          <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
-            ipsa odit unde consequuntur labore fugiat nesciunt suscipit optio
-            atque libero autem maxime incidunt quo. Temporibus aut ullam
-            mollitia deserunt reiciendis!
+        </div>
+
+        <div class="wrapper-list">
+          <div class="header">
+            Done <br />
+            <small>Completado</small>
           </div>
-          <div class="actions">
-            <div class="icon-item">X</div>
-            <div class="icon-item">X</div>
+          <div class="content-list">
+            <ul id="done-list"></ul>
           </div>
-        </li>
-        <li class="card">
-          <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
-            ipsa odit unde consequuntur labore fugiat nesciunt suscipit optio
-            atque libero autem maxime incidunt quo. Temporibus aut ullam
-            mollitia deserunt reiciendis!
-          </div>
-          <div class="actions">
-            <div class="icon-item">X</div>
-            <div class="icon-item">X</div>
-          </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
+
+    <script src="./js/load-app.js"></script>
+    <script src="./js/set-tasks.js"></script>
   </body>
 </html>
